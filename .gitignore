@@ -1,0 +1,22 @@
+# Data 
+data/raw/
+data/processed/*.csv
+data/processed/*.pkl
+
+# Model checkpoints 
+models/distilbert/
+models/pubmedbert/
+models/biobert/
+
+# Results 
+results/plots/*.png
+results/metrics/*.csv
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
