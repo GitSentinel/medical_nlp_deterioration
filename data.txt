@@ -1,53 +1,85 @@
 DATASET INFORMATION
 ===================
 
-Dataset    : MIMIC-IV Clinical Database Demo v2.2
-Source     : PhysioNet
-URL        : https://physionet.org/content/mimic-iv-demo/2.2/
-DOI        : https://doi.org/10.13026/dp1f-ex47
-License    : PhysioNet Credentialed Health Data License 1.5.0
-Access     : Free PhysioNet account required
+Dataset  : MIMIC-IV v3.1
+Source   : PhysioNet
+URL      : https://physionet.org/content/mimiciv/3.1/
+DOI      : https://doi.org/10.13026/kpb9-mt58
+License  : PhysioNet Credentialed Health Data License 1.5.0
+Access   : Credentialed PhysioNet account required (CITI training + DUA)
+Published: October 11, 2024
 
 Description
 -----------
-The MIMIC-IV Demo is a publicly available subset of the full MIMIC-IV
-database, containing de-identified electronic health records for
-approximately 100 ICU patients admitted to Beth Israel Deaconess
-Medical Center, Boston, MA.
+MIMIC-IV is a large, freely accessible de-identified EHR dataset for
+patients admitted to the emergency department or an intensive care unit
+at Beth Israel Deaconess Medical Center (BIDMC), Boston, MA.
 
-It covers two modules:
-  - hosp/   Hospital-level data (admissions, diagnoses, medications, labs)
-  - icu/    ICU-level data (stays, chart events, procedures)
+v3.1 covers admissions from 2008 to 2022 (2020-2022 cohort is new in
+v3.0/v3.1). v3.1 fixed a bug where itemid values in d_labitems and
+labevents had changed unintentionally between v2.2 and v3.0.
 
-Tables Used in This Study
--------------------------
-hosp/patients.csv         Patient demographics and date of death
-hosp/admissions.csv       Hospital admission and discharge timestamps
-hosp/diagnoses_icd.csv    ICD-10/9 diagnoses per admission (with seq_num)
-hosp/d_icd_diagnoses.csv  ICD code → human-readable title lookup
-hosp/prescriptions.csv    Medication prescriptions with start/stop dates
-hosp/labevents.csv        Laboratory test results with timestamps
-hosp/d_labitems.csv       Lab item ID → label lookup
-icu/icustays.csv          ICU stay records with in/out times and LOS
+Scale (approximate, post de-identification):
+  - >65,000 ICU patients
+  - >200,000 ED patients
+  - ~500,000 hospital admissions total
+
+Key Changes vs MIMIC-IV Demo v2.2
+----------------------------------
+  - Full credentialed dataset (not a 100-patient demo)
+  - Coverage extended from 2019 to 2022
+  - New omr table: height, weight, BMI, blood pressure, eGFR (outpatient)
+  - dod (date of death) available via hospital + state linkage
+  - order_provider_id column in labevents and prescriptions
+  - Two orphaned subject_id fixed in patients table (v3.1 bugfix)
+  - itemid consistency in d_labitems / labevents restored (v3.1 bugfix)
+
+Tables Used in This Project
+---------------------------
+hosp/patients.csv.gz         Patient demographics (anchor_age, gender, dod)
+hosp/admissions.csv.gz       Admission and discharge timestamps
+hosp/diagnoses_icd.csv.gz    ICD-10/9 diagnoses per admission
+hosp/d_icd_diagnoses.csv.gz  ICD code to human-readable title lookup
+hosp/prescriptions.csv.gz    Medication prescriptions with dates
+hosp/labevents.csv.gz        Laboratory test results with timestamps
+hosp/d_labitems.csv.gz       Lab item ID to label lookup
+hosp/omr.csv.gz              Outpatient measurements: height, weight, BMI, BP
+icu/icustays.csv.gz          ICU stay records with LOS
 
 Prediction Target
 -----------------
-Binary classification: 30-day hospital readmission.
-Label = 1 if the patient is re-admitted within 30 days of discharge.
-Label = 0 otherwise.
-Derived entirely from admission timestamps (no external labelling needed).
+Binary 30-day readmission:
+  Label = 1 if re-admitted within 30 days of discharge
+  Label = 0 otherwise
+Derived entirely from admission timestamps. In-hospital deaths excluded
+from the positive class (patient cannot be "readmitted" if they died).
 
 Setup Instructions
 ------------------
-1. Create a free account at https://physionet.org
-2. Sign the data use agreement for MIMIC-IV Demo
-3. Download: https://physionet.org/content/mimic-iv-demo/2.2/
-4. Extract the zip to:
-       data/raw/mimic-iv-clinical-database-demo-2.2/
-5. Run notebooks in order: 01 → 02 → 03 → 04 → 05a → 05b → 05c → 06
+1. Create a credentialed account at https://physionet.org
+2. Complete CITI training (free, approx. 2 hours)
+3. Sign the MIMIC-IV data use agreement on PhysioNet
+4. Download MIMIC-IV v3.1 from the URL above
+5. Extract to:
+       data/raw/mimic-iv-3.1/
+   Confirm structure:
+       data/raw/mimic-iv-3.1/hosp/admissions.csv.gz   <- should exist
+       data/raw/mimic-iv-3.1/icu/icustays.csv.gz      <- should exist
+6. Run notebooks in order: 01 -> 02 -> 03 -> 04 -> 05a -> 05b -> 05c -> 06
 
-Citation
---------
-Johnson, A., Bulgarelli, L., Pollard, T., Horng, S., Celi, L. A., &
-Mark, R. (2023). MIMIC-IV Clinical Database Demo (version 2.2).
-PhysioNet. https://doi.org/10.13026/dp1f-ex47
+Citations
+---------
+Primary dataset:
+Johnson, A., Bulgarelli, L., Pollard, T., Gow, B., Moody, B., Horng, S.,
+Celi, L. A., & Mark, R. (2024). MIMIC-IV (version 3.1). PhysioNet.
+RRID:SCR_007345. https://doi.org/10.13026/kpb9-mt58
+
+Original MIMIC-IV paper:
+Johnson, A.E.W., Bulgarelli, L., Shen, L. et al. MIMIC-IV, a freely
+accessible electronic health record dataset. Sci Data 10, 1 (2023).
+https://doi.org/10.1038/s41597-022-01899-x
+
+PhysioNet platform:
+Goldberger, A., Amaral, L., Glass, L., et al. PhysioBank, PhysioToolkit,
+and PhysioNet: Components of a new research resource for complex
+physiologic signals. Circulation 101(23): e215-e220 (2000).

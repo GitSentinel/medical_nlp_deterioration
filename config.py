@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent
 RANDOM_STATE = 42
 
 # Raw Data
-DATA_ROOT = BASE_DIR / "data" / "raw" / "mimic-iv-clinical-database-demo-2.2"
+DATA_ROOT = BASE_DIR / "data" / "raw" / "mimic-iv-3.1"
 HOSP_DIR = DATA_ROOT / "hosp"
 ICU_DIR = DATA_ROOT / "icu"
 
