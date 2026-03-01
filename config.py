@@ -14,6 +14,7 @@ ICU_DIR = DATA_ROOT / "icu"
 
 # Processed Data
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
+LABELLED_DATASET = os.path.join(PROCESSED_DIR, 'labelled_dataset.csv')
 
 # Results
 PLOTS_DIR = BASE_DIR / "results" / "plots"
