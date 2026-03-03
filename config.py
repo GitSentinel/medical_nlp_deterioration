@@ -28,6 +28,11 @@ NUM_LABELS = 2
 TEST_SIZE = 0.20
 VAL_SIZE = 0.50 
 
+# HuggingFace model IDs (used in tokeniser comparison)
+DISTILBERT_MODEL_ID = 'distilbert-base-uncased'
+PUBMEDBERT_MODEL_ID = 'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext'
+BIOBERT_MODEL_ID = 'dmis-lab/biobert-base-cased-v1.2'
+
 # Output Directories
 for d in [PROCESSED_DIR, PLOTS_DIR, METRICS_DIR]:
     d.mkdir(parents=True, exist_ok=True)
