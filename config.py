@@ -7,6 +7,9 @@ BASE_DIR = Path(__file__).resolve().parent
 # Seed for Reproducibility
 RANDOM_STATE = 42
 
+# Data Subset Configuration
+SUBSET_PATIENTS = 10000
+
 # Raw Data
 DATA_ROOT = BASE_DIR / "data" / "raw" / "mimic-iv-3.1"
 HOSP_DIR = DATA_ROOT / "hosp"
