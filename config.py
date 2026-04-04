@@ -37,16 +37,18 @@ VAL_SIZE = 0.50
 
 # Transformer hyperparameters 
 MAX_LENGTH = 256
-NUM_EPOCHS = 5
-BATCH_SIZE = 8
-LEARNING_RATE = 2e-5
+NUM_EPOCHS = 8
+BATCH_SIZE = 64
+LEARNING_RATE = 3e-5
 WEIGHT_DECAY = 0.01
-WARMUP_STEPS = 50
-EARLY_STOPPING_PATIENCE = 2
+WARMUP_STEPS = 200
+EARLY_STOPPING_PATIENCE = 3
 
 # Model paths
-MODELS_DIR = 'models'
-DISTILBERT_DIR = os.path.join(MODELS_DIR, 'distilbert')
+MODELS_DIR = BASE_DIR / 'models'
+DISTILBERT_DIR = str(BASE_DIR / 'models' / 'distilbert')
+PUBMEDBERT_DIR = str(BASE_DIR / 'models' / 'pubmedbert')
+BIOBERT_DIR = str(BASE_DIR / 'models' / 'biobert')
 
 # HuggingFace model IDs (used in tokeniser comparison)
 DISTILBERT_MODEL_ID = 'distilbert-base-uncased'
