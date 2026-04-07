@@ -20,12 +20,14 @@ PROCESSED_DIR = BASE_DIR / "data" / "processed"
 LABELLED_DATASET = os.path.join(PROCESSED_DIR, 'labelled_dataset.csv')
 BEST_BASELINE_PKL = os.path.join(PROCESSED_DIR, 'best_baseline.pkl')
 DISTILBERT_PREDS_PKL = os.path.join(PROCESSED_DIR, 'preds_distilbert.pkl')
+PUBMEDBERT_PREDS_PKL = os.path.join(PROCESSED_DIR, 'preds_pubmedbert.pkl')
 
 # Results
 PLOTS_DIR = BASE_DIR / "results" / "plots"
 METRICS_DIR = BASE_DIR / "results" / "metrics"
 BASELINE_RESULTS_CSV = os.path.join(METRICS_DIR, 'baseline_results.csv')
 DISTILBERT_RESULTS_CSV = os.path.join(METRICS_DIR, 'distilbert_results.csv')
+PUBMEDBERT_RESULTS_CSV = os.path.join(METRICS_DIR, 'pubmedbert_results.csv')
 
 # Label definitions
 READMISSION_WINDOW_DAYS = 30
