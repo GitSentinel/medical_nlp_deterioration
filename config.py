@@ -30,6 +30,7 @@ BASELINE_RESULTS_CSV = os.path.join(METRICS_DIR, 'baseline_results.csv')
 DISTILBERT_RESULTS_CSV = os.path.join(METRICS_DIR, 'distilbert_results.csv')
 PUBMEDBERT_RESULTS_CSV = os.path.join(METRICS_DIR, 'pubmedbert_results.csv')
 BIOBERT_RESULTS_CSV = os.path.join(METRICS_DIR, 'biobert_results.csv')
+ALL_RESULTS_CSV = os.path.join(METRICS_DIR, 'all_models_results.csv')
 
 # Label definitions
 READMISSION_WINDOW_DAYS = 30
