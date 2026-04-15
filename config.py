@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent
 RANDOM_STATE = 42
 
 # Data Subset Configuration
-SUBSET_PATIENTS = 20000
+SUBSET_PATIENTS = 12000
 
 # Raw Data
 DATA_ROOT = BASE_DIR / "data" / "raw" / "mimic-iv-3.1"
