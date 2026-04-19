@@ -1,2 +1,2 @@
 Model,Model_ID,Type,Domain,Accuracy,Precision_Pos,Recall_Pos,F1_Pos,F1_Weighted,ROC_AUC,PR_AUC
-PubMedBERT,microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Transformer,Biomedical (pre-trained from scratch on PubMed + PMC),0.6994459833795014,0.3344623200677392,0.569164265129683,0.42133333333333334,0.7247857140759435,0.7113342662760958,0.3999147555973282
+PubMedBERT,microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Transformer,Biomedical (pre-trained from scratch on PubMed + PMC),0.6905817174515235,0.32621199671322926,0.5720461095100865,0.41548927263212976,0.7176816135977926,0.7068395377980179,0.40027221200883345
