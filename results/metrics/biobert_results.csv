@@ -1,2 +1,2 @@
 Model,Model_ID,Type,Domain,Accuracy,Precision_Pos,Recall_Pos,F1_Pos,F1_Weighted,ROC_AUC,PR_AUC
-BioBERT,dmis-lab/biobert-base-cased-v1.2,Transformer,Biomedical (BERT-base-cased + continued pretraining on PubMed + PMC),0.6722991689750693,0.3137852246763138,0.5936599423631124,0.4105630293971101,0.7033781389345468,0.7025407371829082,0.3996444696283806
+BioBERT,dmis-lab/biobert-base-cased-v1.2,Transformer,Biomedical (BERT-base-cased + continued pretraining on PubMed + PMC),0.6509695290858726,0.29098966026587886,0.5677233429394812,0.384765625,0.6849398648740931,0.6787731802674699,0.3651635382174004
