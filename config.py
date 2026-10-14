@@ -18,6 +18,7 @@ ICU_DIR = DATA_ROOT / "icu"
 # Processed Data
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
 LABELLED_DATASET = os.path.join(PROCESSED_DIR, 'labelled_dataset.csv')
+SPLIT_MANIFEST = PROCESSED_DIR / "split_manifest.csv"
 BEST_BASELINE_PKL = os.path.join(PROCESSED_DIR, 'best_baseline.pkl')
 DISTILBERT_PREDS_PKL = os.path.join(PROCESSED_DIR, 'preds_distilbert.pkl')
 PUBMEDBERT_PREDS_PKL = os.path.join(PROCESSED_DIR, 'preds_pubmedbert.pkl')
